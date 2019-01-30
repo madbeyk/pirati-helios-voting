@@ -269,7 +269,7 @@ $out.="</tr>";
 
 $out.="</table>";
 
-$out.="<p>&#9989;&nbsp;volil(a)&nbsp; &nbsp;&#10060;&nbsp;nevolil(a)&nbsp; &nbsp;&#10134;&nbsp;nebyl(a)&nbsp;na&nbsp;seznamu&nbsp; <span class='u-mirror-horizontally'>©</span> 2019 Marek Förster - Piráti, marek.forster@pirati.cz</p>";
+$out.="<p>&#9989;&nbsp;volil(a)&nbsp; &nbsp;&#10060;&nbsp;nevolil(a)&nbsp; &nbsp;&#10134;&nbsp;nebyl(a)&nbsp;na&nbsp;seznamu&nbsp; <span class='u-mirror-horizontally'>©</span> 2019 Marek Förster - Piráti, marek.forster@pirati.cz, <a href='https://github.com/madbeyk/pirati-helios-voting' target='_blank'>github</a></p>";
 
 foreach ($helios as $helid=>$heldata) {
   if ($heldata['finished']==false) $out.="<p>Poslední aktualizace (".str_replace("<br/>","/",$heldata['name'])."): ".date("Y-m-d H:i",$heldata['update'])."<br/>";
