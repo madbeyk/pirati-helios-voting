@@ -14,14 +14,26 @@ $url_prefix="https://helios.pirati.cz/helios/elections/";
 $url_postfix="/voters/list?page=1&limit=1000&q=";
 $url_test="/voters/list?page=1&limit=1&q=";
 
+///*
 $helios=array(
-'lidr_1_kolo'=>array('name'=>'EP - Lídr kandidátky<br/>1. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_lidra_kandidátky_do_EP_1_kolo.txt','votes'=>465,'finished'=>true),
-'lidr_2_kolo'=>array('name'=>'EP - Lídr kandidátky<br/>2. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_lidra_kandidátky_do_EP_2_kolo.txt','votes'=>449,'finished'=>true),
-'celo_1_kolo'=>array('name'=>'EP - Čelo kandidátky<br/>1. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_cela_kandidátky_do_EP_1_kolo.txt','votes'=>454,'finished'=>true),
-'celo_2_kolo'=>array('name'=>'EP - Čelo kandidátky<br/>2. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_cela_kandidátky_do_EP_2_kolo.txt','votes'=>449,'finished'=>true),
-'5_misto_1_kolo'=>array('name'=>'EP - 5. místo<br/>1. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_5__místa_kandidátky_do_EP_1__kolo.txt','votes'=>375,'finished'=>true),
+'lidr_1_kolo'=>array('name'=>'EP - Lídr kandidátky<br/>1. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_lidra_kandidátky_do_EP_1_kolo.txt', 'url'=>'fb585256-1bb1-11e9-b0a7-00000a2a0114', 'votes'=>465,'finished'=>true),
+'lidr_2_kolo'=>array('name'=>'EP - Lídr kandidátky<br/>2. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_lidra_kandidátky_do_EP_2_kolo.txt', 'url'=>'f23ad74f-81c8-483d-8df2-4cccd46a46ed', 'votes'=>449,'finished'=>true),
+'celo_1_kolo'=>array('name'=>'EP - Čelo kandidátky<br/>1. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_cela_kandidátky_do_EP_1_kolo.txt', 'url'=>'ca07d3d8-3eba-4edc-b7af-a053a088f571', 'votes'=>454,'finished'=>true),
+'celo_2_kolo'=>array('name'=>'EP - Čelo kandidátky<br/>2. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_cela_kandidátky_do_EP_2_kolo.txt', 'url'=>'33819892-5675-4edf-83af-09c06ae6a5af', 'votes'=>421,'finished'=>true),
+'5_misto_1_kolo'=>array('name'=>'EP - 5. místo<br/>1. kolo', 'type'=>'local', 'file'=>'cf_24_2018_volba_5__místa_kandidátky_do_EP_1__kolo.txt', 'url'=>'9ae5e2d4-10bb-4d1b-95ab-133ffd230322', 'votes'=>375,'finished'=>true),
 '5_misto_II_1_kolo'=>array('name'=>'EP - 5. místo<br/>nová volba - 1. kolo', 'type'=>'helios', 'file'=>'2b166e4f-ce02-4337-ad2b-a2fe0aaf7fbb', 'finished'=>true),
 );
+//*/
+
+$helios=array(
+'lidr_1_kolo'=>array('name'=>'EP - Lídr kandidátky<br/>1. kolo',              'type'=>'helios', 'file'=>'fb585256-1bb1-11e9-b0a7-00000a2a0114', 'finished'=>true),
+'lidr_2_kolo'=>array('name'=>'EP - Lídr kandidátky<br/>2. kolo',              'type'=>'helios', 'file'=>'f23ad74f-81c8-483d-8df2-4cccd46a46ed', 'finished'=>true),
+'celo_1_kolo'=>array('name'=>'EP - Čelo kandidátky<br/>1. kolo',              'type'=>'helios', 'file'=>'ca07d3d8-3eba-4edc-b7af-a053a088f571', 'finished'=>true),
+'celo_2_kolo'=>array('name'=>'EP - Čelo kandidátky<br/>2. kolo',              'type'=>'helios', 'file'=>'33819892-5675-4edf-83af-09c06ae6a5af', 'finished'=>true),
+'5_misto_1_kolo'=>array('name'=>'EP - 5. místo<br/>1. kolo',                  'type'=>'helios', 'file'=>'9ae5e2d4-10bb-4d1b-95ab-133ffd230322', 'finished'=>true),
+'5_misto_II_1_kolo'=>array('name'=>'EP - 5. místo<br/>nová volba - 1. kolo',  'type'=>'helios', 'file'=>'2b166e4f-ce02-4337-ad2b-a2fe0aaf7fbb', 'finished'=>true),
+);
+
 
 
 $forum_url="https://forum.pirati.cz/memberlist.php?mode=group&g=";
@@ -222,7 +234,7 @@ foreach ($clendb as $clid=>$cldata) {
 $out="<table style='border-collapse: collapse;'>";
 $out.="<tr style='font-weight:bold;'><td style='border:1px solid #d0d0d0; padding:0.3em;'>Jméno</td>";
 foreach ($helios as $helid=>$heldata) {
-  $out.="<td style='border:1px solid #d0d0d0; padding:0.3em; text-align:center;'>".$heldata['name']."</td>";
+  $out.="<td style='border:1px solid #d0d0d0; padding:0.3em; text-align:center;'><a href='".$url_prefix.(($heldata['type']=="local")?$heldata['url']:$heldata['file'])."/view' target='".$heldata['name']."'>".$heldata['name']."</a></td>";
   }
 $out.="<td style='border:1px solid #d0d0d0; padding:0.3em; text-align:right;'>Celkem</td></tr>";  
 
